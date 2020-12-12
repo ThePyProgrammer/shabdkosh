@@ -2,13 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import date, timedelta
 
-sdate = date(2009, 10, 1)   # start date
+sdate = date(2009, 10, 1)   # start date in format (year, month, day)
 edate = date.today()        # end date
 
 delta = edate - sdate       # as timedelta
-print(delta)
 
-#with open("hindiQuotes.txt", "w+") as file:
 for i in range(delta.days + 1):
     date = sdate + timedelta(days=i)
     day = date.day
