@@ -7,6 +7,8 @@ edate = date.today()        # end date
 
 delta = edate - sdate       # as timedelta
 
+lst = []
+
 for i in range(delta.days + 1):
     date = sdate + timedelta(days=i)
     day = date.day
@@ -17,4 +19,6 @@ for i in range(delta.days + 1):
 
     tag = "blockquote"
     arr = [text.get_text().replace("&dash", "–") for text in soup.find_all(tag)][:2]
+    if arr[0] in lst: continue
+    lst.append(arr[0])
     print(date, arr[0], arr[1], sep="\n", end="\n\n")
